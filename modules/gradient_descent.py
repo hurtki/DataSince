@@ -2,7 +2,7 @@ import math
 from typing import Callable
 
 
-def gradient_decent(
+def gradient_descent(
     nigzeret: Callable[[float], float],
     start: float,
     alpha: float,
@@ -10,7 +10,7 @@ def gradient_decent(
     time_log: int
 ) -> float:
     """
-    This function realizes a gradient decent algorithm 
+    This function realizes a gradient descent algorithm 
     """
     # assighning unreal previous to not quit from the start
     previous = start + 999999
