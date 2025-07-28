@@ -3,6 +3,7 @@
 
 from io import TextIOWrapper
 from typing import Callable
+from numbers import Real
 
 
 def get_list(csv_file: TextIOWrapper) -> list[dict]:
@@ -41,7 +42,7 @@ def get_list(csv_file: TextIOWrapper) -> list[dict]:
     return array
 
 
-def graph(func: Callable[[float], float], 
+def graph(func: Callable[[float|int], float], 
           from_p: int | float, 
           to_p: int | float, 
           step: int | float, 
@@ -64,7 +65,7 @@ def graph(func: Callable[[float], float],
     y = []
     for i in np.arange(from_p, to_p, step): 
         try:
-            func_return = func(i)
+            func_return = func(float(i))
         except Exception as e:
             continue
 
