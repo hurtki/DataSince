@@ -2,6 +2,7 @@
 # https://github.com/hurtki/DataSince
 
 from io import TextIOWrapper
+from typing import Callable
 
 
 def get_list(csv_file: TextIOWrapper) -> list[dict]:
@@ -39,3 +40,34 @@ def get_list(csv_file: TextIOWrapper) -> list[dict]:
 
     return array
 
+
+def graph(func: Callable[[float], float], 
+          from_p: int | float, 
+          to_p: int | float, 
+          step: int | float, 
+          canvas: str):
+    """
+    function that draws a nice graph using given function checking
+    all x from from_p to to_p with also given step step
+    REQUIRES CANVAS PARAMETRE: 'seaborn' / coming soon..
+    """
+    if canvas == "seaborn":
+        try:
+            import seaborn as sns
+            import numpy as np
+        except ImportError:
+            print("no seaborn or numpy installed: do 'pip install seaborn numpy'")
+            return
+    else:
+        print("supported canvases: 'seaborn'")
+    X = []
+    y = []
+    for i in np.arange(from_p, to_p, step): 
+        try:
+            func_return = func(i)
+        except Exception as e:
+            continue
+
+        X.append(i)
+        y.append(func_return)
+    sns.lineplot(x=X, y=y, color='g')
