@@ -1,3 +1,6 @@
+# === LINEAR REGRESSION ALGORITHM ===
+# https://github.com/hurtki/DataSince
+
 from .gradient_descent import gradient_descent_3d
 
 class LinearRegression:

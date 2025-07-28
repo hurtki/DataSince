@@ -1,3 +1,6 @@
+# === GRADIENT DEDCENT ALGORITHM ===
+# https://github.com/hurtki/DataSince
+
 import math
 from typing import Callable
 

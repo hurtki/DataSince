@@ -1,6 +1,6 @@
-# === here will be some non-library csv parsing modules === 
+# === CSV PARSING ALGORITHM ===
+# https://github.com/hurtki/DataSince
 
-# === IMPORTS === 
 from io import TextIOWrapper
 
 
