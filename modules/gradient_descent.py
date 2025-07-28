@@ -2,7 +2,7 @@ import math
 from typing import Callable
 
 
-def gradient_descent(
+def gradient_descent_2d(
     nigzeret: Callable[[float], float],
     start: float,
     alpha: float,
@@ -32,3 +32,21 @@ def gradient_descent(
 
     return x
 
+
+def gradient_descent_3d(
+    nigzeret: Callable[[tuple[float, float]], tuple[float, float]],
+    start: tuple[float, float],
+    alpha: float,
+    iter: int,
+    time_log: float
+) -> tuple[float, float]:
+    
+    x = start
+    for i in range(iter):
+        grad_w, grad_b = nigzeret(x)
+        # логирование
+        
+        if (not time_log == 0) and i % (iter // time_log) == 0:
+            print(f"Iteration {i}: w={x[0]}, b={x[1]}, grad_w={grad_w}, grad_b={grad_b}")
+        x = (x[0] - alpha * grad_w, x[1] - alpha * grad_b)
+    return x
