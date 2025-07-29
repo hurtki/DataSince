@@ -68,5 +68,3 @@ class LinearRegression:
         w, b = params
         return self.__gradient(self.X, self.y, w, b)
     
-reg = LinearRegression()
-reg.fit(X=[1, 2, 3, 4], y=[1, 2, 3, 4])
