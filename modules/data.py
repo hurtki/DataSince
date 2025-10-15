@@ -61,6 +61,7 @@ def graph(func: Callable[[float|int], float],
             return
     else:
         print("supported canvases: 'seaborn'")
+        return
     X = []
     y = []
     for i in np.arange(from_p, to_p, step): 
